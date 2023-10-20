@@ -2,7 +2,10 @@
 
 Este é um simples sistema de gerenciamento de automóveis e pessoas construído com Spring Boot. Ele permite que você crie, edite, visualize a representação gráfica de um fluxo específico e exclua fluxos de trabalho.
 
-![image](https://github.com/seu-usuario/spring-automoveis-pessoas/assets/exemplo.png)
+![image](https://i.imgur.com/0H8tR1J.png)
+![image](https://i.imgur.com/PVacpy9.png)
+![image](https://i.imgur.com/ekncLQc.png)
+![image](https://i.imgur.com/cshvUY1.png)
 
 ## Início
 
@@ -22,13 +25,13 @@ Para executar o aplicativo em um ambiente de desenvolvimento, siga estas etapas:
 1. Clone o repositório em sua máquina local:
 
    ```bash
-   [git clone https://github.com/seu-usuario/spring-automoveis-pessoas.git](https://github.com/bielmenezesc/wtldigital_code_test.git)
+   https://github.com/bielmenezesc/wtldigital_code_test.git
    ```
 
 2. Navegue até o diretório do projeto:
 
    ```bash
-   cd spring-automoveis-pessoas
+   cd wtldigital_code_test
    ```
   
 3. Instale as dependências do Maven:
@@ -36,8 +39,7 @@ Para executar o aplicativo em um ambiente de desenvolvimento, siga estas etapas:
    ```bash
    mvn install
    ```
-   
-4. Execute o aplicativo Spring Boot:
+   4. Execute o aplicativo Spring Boot:
 
   ```bash
   mvn spring-boot:run
@@ -47,4 +49,3 @@ O aplicativo estará disponível em `http://localhost:8080`.
 
 ---
 Este projeto foi desenvolvido com ❤️ por [Gabriel Menezes Cabral](https://github.com/bielmenezesc).
-```
