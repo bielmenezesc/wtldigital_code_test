@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Automóvel</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <h1>Editar Automóvel</h1>
+    
+    <form action="#" 
+        th:action="@{/automoveis/update/{id}(id=${automovel.id})}" 
+        th:object="${automovel}" 
+        method="post">
+        <div>
+            <label for="placa">Placa:</label>
+            <input type="text" id="placa" name="placa" required="required" th:field="*{placa}">
+        </div>
+        <div>
+            <label for="veiculo">Veículo:</label>
+            <input type="text" id="veiculo" name="veiculo" required="required" th:field="*{veiculo}">
+        </div>
+        <div>
+            <label for="pessoa_cpf">CPF do Proprietário:</label>
+            <input type="text" id="pessoa_cpf" name="pessoa_cpf" required="required" th:value="*{proprietario.cpf}">
+        </div>
+        <div>
+            <button type="submit">Editar</button>
+            <td><a th:href="@{/automoveis/delete/{id}(id=*{id})}">Delete</a></td>
+        </div>
+    </form>
+</body>
+</html>

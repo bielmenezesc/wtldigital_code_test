@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Automóvel</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <h1>Criar Automóvel</h1>
+    
+    <form method="post" action="/automoveis">
+        <div>
+            <label for="placa">Placa:</label>
+            <input type="text" id="placa" name="placa" required="required">
+        </div>
+        <div>
+            <label for="veiculo">Veículo:</label>
+            <input type="text" id="veiculo" name="veiculo" required="required">
+        </div>
+        <div>
+            <label for="pessoa_cpf">CPF do Proprietário:</label>
+            <input type="text" id="pessoa_cpf" name="pessoa_cpf" required="required">
+        </div>
+        <div>
+            <button type="submit">Salvar</button>
+        </div>
+    </form>
+</body>
+</html>

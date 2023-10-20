@@ -2,37 +2,52 @@ package br.com.wtldigital.codetest.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Column;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "pessoa")
 public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(unique = true)
     private String cpf;
     
+    @Column
     private String nome;
+
+    @Column
     private String estado;
 
     @OneToMany(mappedBy = "proprietario", cascade = CascadeType.ALL)
+    @Column
     private List<Automovel> automoveis;
 
+    public Pessoa() {
+
+    }
+
+    public Pessoa(String cpf, String nome, String estado) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.estado = estado;
+    }
+
     // Getter para o campo id
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
     // Setter para o campo id
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

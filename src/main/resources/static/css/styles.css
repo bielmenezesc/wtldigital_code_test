@@ -1,0 +1,108 @@
+/* Define um estilo para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    text-align: center;
+}
+
+/* Define um estilo para o cabeçalho (título) */
+h1 {
+    color: #333;
+    font-size: 28px;
+    margin-top: 200px;
+}
+
+/* Define um estilo para a tabela */
+table {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+/* Define um estilo para as células da tabela */
+table td, table th {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Define um estilo para os links */
+a {
+    color: #0077cc;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+/* Define um estilo para os links de ação (Editar e Deletar) */
+a.action {
+    color: #cc0000;
+}
+
+/* Define um estilo para os links ao passar o mouse */
+a:hover {
+    text-decoration: underline;
+}
+
+/* Define um estilo para o formulário */
+form {
+    width: 25%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+/* Define um estilo para os botões no formulário */
+form button {
+    background-color: #0077cc;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Define um estilo para os campos de entrada no formulário */
+form input[type="text"] {
+    width: 100%;
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid;
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+form label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* Define um estilo para a mensagem de erro */
+.error-message {
+    color: #cc0000;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Define um estilo para as divs de detalhes (Detalhes do Veículo e Detalhes do Usuário) */
+.details {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Define um estilo para o rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

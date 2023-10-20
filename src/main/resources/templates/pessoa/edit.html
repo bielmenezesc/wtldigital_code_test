@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Pessoa</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <h1>Criar Pessoa</h1>
+    
+    <form action="#" 
+    th:action="@{/pessoas/update/{id}(id=${pessoa.id})}" 
+    th:object="${pessoa}" 
+    method="post">
+        <div>
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" required="required" th:field="*{cpf}">
+        </div>
+        <div>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required="required" th:field="*{nome}">
+        </div>
+        <div>
+            <label for="estado">Estado:</label>
+            <input type="text" id="estado" name="estado" required="required" th:field="*{estado}">
+        </div>
+        <div>
+            <button type="submit">Editar</button>
+            <td><a th:href="@{/pessoas/delete/{id}(id=*{id})}">Deletar</a></td>
+        </div>
+    </form>
+</body>
+</html>

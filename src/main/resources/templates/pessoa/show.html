@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Veículo</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+
+<body th:object="${pessoa}">
+    <h1>Detalhes do Usuário</h1>
+    <div>
+        <p>Id: <span id="nome" th:text="*{id}"></span></p>
+        <p>Nome: <span id="nome" th:text="*{nome}"></span></p>
+        <p>CPF: <span id="cpf" th:text="*{cpf}"></span></p>
+        <p>Estado: <span id="estado" th:text="*{estado}"></span></p>
+    </div>
+    <div>
+        <td><a th:href="@{/pessoas/edit/{id}(id=*{id})}">Edit</a></td>
+        <td><a th:href="@{/pessoas/delete/{id}(id=*{id})}">Delete</a></td>
+    </div>
+
+</body>
+
+</html>

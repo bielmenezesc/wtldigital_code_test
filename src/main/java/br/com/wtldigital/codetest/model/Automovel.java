@@ -1,38 +1,46 @@
 package br.com.wtldigital.codetest.model;
 
-import java.util.Optional;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 
 @Entity
+@Table(name = "automovel")
 public class Automovel {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
     @Column(unique = true)
     private String placa;
-    
+
     private String veiculo;
 
     @ManyToOne
     @JoinColumn(name = "pessoa_id")
-    private Optional<Pessoa> proprietario;
+    private Pessoa proprietario;
+
+    public Automovel() {
+    }
+
+    public Automovel(String placa, String veiculo, Pessoa pessoa) {
+        this.placa = placa;
+        this.veiculo = veiculo;
+        this.proprietario = pessoa;
+    }
     
     // Getter para o campo id
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
     // Setter para o campo id
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -52,11 +60,11 @@ public class Automovel {
         this.veiculo = veiculo;
     }
 
-    public Optional<Pessoa> getProprietario() {
+    public Pessoa getProprietario() {
         return proprietario;
     }
 
-    public void setProprietario(Optional<Pessoa> proprietario) {
-        this.proprietario = proprietario;
+    public void setProprietario(Pessoa pessoa) {
+        this.proprietario = pessoa;
     }
 }
