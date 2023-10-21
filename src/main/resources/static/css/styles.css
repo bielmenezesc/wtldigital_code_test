@@ -1,8 +1,13 @@
 /* Define um estilo para o corpo da página */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
+    font-family: "Roboto Mono", monospace;
     text-align: center;
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: calc(10px + 2vmin);
+    color: black;
 }
 
 /* Define um estilo para o cabeçalho (título) */
@@ -20,10 +25,12 @@ table {
     border: 1px solid #ddd;
     border-collapse: collapse;
     text-align: left;
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 /* Define um estilo para as células da tabela */
-table td, table th {
+table td,
+table th {
     padding: 10px;
     border: 1px solid #ddd;
 }
@@ -52,6 +59,7 @@ form {
     background-color: #fff;
     padding: 20px;
     border: 1px solid #ddd;
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 /* Define um estilo para os botões no formulário */
@@ -105,4 +113,88 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+header {
+    background-color: white;
+    width: 100%;
+    padding: 32px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.links {
+    font-size: 22px;
+}
+
+.links a+a {
+    margin-left: 32px;
+}
+
+a.links {
+    text-decoration: none;
+    color: #777;
+    position: relative;
+}
+
+a.links.active {
+    font-weight: bold;
+    color: var(--tertiary-color);
+}
+
+a.links:hover {
+    color: var(--tertiary-color);
+}
+
+a.links::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: var(--tertiary-color);
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+}
+
+a.links:hover::after {
+    width: 100%;
+    transition: width 700ms ease-in-out;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    font-size: 18px;
+    display: none;
+    position: absolute;
+    background-color: gray;
+    min-width: 160px;
+    z-index: 1;
+    text-align: center;
+    /* Centraliza o conteúdo */
+    top: 100%;
+    /* Coloca a caixa abaixo do link */
+    left: 50%;
+    /* Centraliza horizontalmente */
+    transform: translateX(-50%);
+    /* Centraliza horizontalmente */
+}
+
+.dropdown-content a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }

@@ -7,6 +7,8 @@
 </head>
 
 <body>
+    <div th:replace="header.html"></div>
+
     <h1>Detalhes dos Veículos</h1>
     
     <table class="table-with-spacing">
@@ -22,8 +24,9 @@
                 <td th:text="${automovel.placa}"></td>
                 <td th:text="${automovel.veiculo}"></td>
                 <td>
-                    <a th:href="@{'/automoveis/edit/' + ${automovel.id}}">Edit</a>
-                    <a th:href="@{'/automoveis/delete/' + ${automovel.id}}">Delete</a>
+                    <a th:href="@{'/automoveis/' + ${automovel.id}}">Ver</a>
+                    <a th:href="@{'/automoveis/edit/' + ${automovel.id}}">Editar</a>
+                    <a th:href="@{'/automoveis/delete/' + ${automovel.id}}">Deletar</a>
                 </td>
             </tr>
         </tbody>

@@ -7,6 +7,8 @@
 </head>
 
 <body>
+    <div th:replace="header.html"></div>
+    
     <h1>Lista de Pessoas</h1>
     
     <table class="table-with-spacing">
@@ -14,16 +16,18 @@
             <th>Nome</th>
             <th>CPF</th>
             <th>Estado</th>
-            <th>Editar</th>
-            <th>Deletar</th>
+            <th>Ações</th>
         </tr>
         
         <tr th:each="pessoa : ${pessoas}">
             <td th:text="${pessoa.nome}"></td>
             <td th:text="${pessoa.cpf}"></td>
             <td th:text="${pessoa.estado}"></td>
-            <td><a th:href="@{'/pessoas/edit/' + ${pessoa.id}}">Edit</a></td>
-            <td><a th:href="@{'/pessoas/delete/' + ${pessoa.id}}">Delete</a></td>
+            <td>
+                <a th:href="@{'/pessoas/' + ${pessoa.id}}">Ver</a>
+                <a th:href="@{'/pessoas/edit/' + ${pessoa.id}}">Editar</a>
+                <a th:href="@{'/pessoas/delete/' + ${pessoa.id}}">Deletar</a>
+            </td>
         </tr>
     </table>
 </body>

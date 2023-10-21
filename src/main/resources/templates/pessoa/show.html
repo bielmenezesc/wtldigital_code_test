@@ -8,6 +8,8 @@
 </head>
 
 <body th:object="${pessoa}">
+    <div th:replace="header.html"></div>
+    
     <h1>Detalhes do Usuário</h1>
     <div>
         <p>Id: <span id="nome" th:text="*{id}"></span></p>
