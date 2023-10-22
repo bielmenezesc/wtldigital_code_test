@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Detalhes dos Veículos</title>
@@ -9,13 +10,22 @@
 <body>
     <div th:replace="header.html"></div>
 
+    <form method="post" action="/automoveis/proprietario">
+        <label for="cpf">Filtrar por Proprietário (CPF):</label>
+        <div class="filter">
+            <input type="text" id="cpf" name="cpf" />
+            <button type="submit">Filtrar</button>
+        </div>
+    </form>
+
     <h1>Detalhes dos Veículos</h1>
-    
+
     <table class="table-with-spacing">
         <thead>
             <tr>
                 <th>Placa</th>
-                <th>Modelo</th>
+                <th>Veículo</th>
+                <th>Proprietário</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -23,6 +33,7 @@
             <tr th:each="automovel : ${automoveis}">
                 <td th:text="${automovel.placa}"></td>
                 <td th:text="${automovel.veiculo}"></td>
+                <td th:text="${automovel.proprietario.nome + ' (CPF: ' + automovel.proprietario.cpf} + ')'"></td>
                 <td>
                     <a th:href="@{'/automoveis/' + ${automovel.id}}">Ver</a>
                     <a th:href="@{'/automoveis/edit/' + ${automovel.id}}">Editar</a>
@@ -32,4 +43,5 @@
         </tbody>
     </table>
 </body>
+
 </html>

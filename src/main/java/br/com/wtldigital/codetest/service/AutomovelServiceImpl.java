@@ -27,8 +27,8 @@ public class AutomovelServiceImpl implements AutomovelService {
     }
 
     @Override
-    public List<Automovel> listarAutomoveisPorPessoaId(Integer pessoaId) {
-        Optional<Pessoa> pessoa = pessoaRepository.findById(pessoaId);
+    public List<Automovel> listarAutomoveisPorPessoaCpf(String pessoaCpf) {
+        Optional<Pessoa> pessoa = pessoaRepository.findByCpf(pessoaCpf);
         return automovelRepository.findByProprietario(pessoa.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pessoa não encontrada")));
     }
 

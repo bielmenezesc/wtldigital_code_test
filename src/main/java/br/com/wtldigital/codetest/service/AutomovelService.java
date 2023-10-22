@@ -8,7 +8,7 @@ import br.com.wtldigital.codetest.model.Automovel;
 public interface AutomovelService {
     List<Automovel> listarAutomoveis();
 
-    List<Automovel> listarAutomoveisPorPessoaId(Integer pessoaId);
+    List<Automovel> listarAutomoveisPorPessoaCpf(String pessoaCpf);
 
     Automovel criarAutomovel(String placa, String veiculo, String pessoaCpf);
 

@@ -32,9 +32,9 @@ public class AutomovelController {
         return "automovel/showAll";
     }
 
-    @GetMapping("/proprietario/{pessoaId}")
-    public String listarAutomoveisPorPessoaId(@PathVariable Integer pessoaId, Model model) {
-        List<Automovel> automoveis = automovelService.listarAutomoveisPorPessoaId(pessoaId);
+    @PostMapping("/proprietario")
+    public String listarAutomoveisPorPessoaId(@RequestParam("cpf") String pessoaCpf, Model model) {
+        List<Automovel> automoveis = automovelService.listarAutomoveisPorPessoaCpf(pessoaCpf);
         model.addAttribute("automoveis", automoveis);
         return "automovel/showAll";
     }
