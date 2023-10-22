@@ -5,7 +5,7 @@ Este é um simples sistema de gerenciamento de automóveis e pessoas construído
 ![image](https://i.imgur.com/RtYVaRD.png)
 ![image](https://i.imgur.com/zt9YMQb.png)
 ![image](https://i.imgur.com/lsLu2pn.png)
-![image](blob:https://imgur.com/a2e106e3-a246-4bb5-b8dd-31383870bcda)
+![image](https://i.imgur.com/xkmwVBt.png)
 
 ## Início
 
