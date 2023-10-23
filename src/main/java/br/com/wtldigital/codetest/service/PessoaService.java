@@ -12,7 +12,9 @@ public interface PessoaService {
 
     Pessoa buscarPessoaPorId(Integer id);
 
-    Pessoa criarPessoa(String cpf, String nome, String estado);
+    Pessoa buscarPessoaPorCpf(String cpf);
+
+    Pessoa criarPessoa(String cpf, String password, String nome, String estado);
 
     Pessoa atualizarPessoa(Integer id, String cpf, String nome, String estado);
 

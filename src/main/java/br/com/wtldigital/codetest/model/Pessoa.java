@@ -1,6 +1,11 @@
 package br.com.wtldigital.codetest.model;
 
+import java.util.Collection;
 import java.util.List;
+
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -13,18 +18,18 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "pessoa")
-public class Pessoa {
+public class Pessoa implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(unique = true)
     private String cpf;
-    
-    @Column
+
+    private String password;
+
     private String nome;
 
-    @Column
     private String estado;
 
     @OneToMany(mappedBy = "proprietario", cascade = CascadeType.ALL)
@@ -35,8 +40,9 @@ public class Pessoa {
 
     }
 
-    public Pessoa(String cpf, String nome, String estado) {
+    public Pessoa(String cpf, String password, String nome, String estado) {
         this.cpf = cpf;
+        this.password = password;
         this.nome = nome;
         this.estado = estado;
     }
@@ -89,5 +95,40 @@ public class Pessoa {
     // Setter para o campo automoveis
     public void setAutomoveis(List<Automovel> automoveis) {
         this.automoveis = automoveis;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return cpf;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

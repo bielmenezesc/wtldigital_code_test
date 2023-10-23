@@ -2,8 +2,7 @@ package br.com.wtldigital.codetest.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 import br.com.wtldigital.codetest.model.Pessoa;
 import br.com.wtldigital.codetest.service.PessoaService;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.Authentication;
 
 @Controller
 @RequestMapping("/pessoas")
@@ -21,7 +23,18 @@ public class PessoaController {
     private PessoaService pessoaService;
 
     @GetMapping
-    public String criarAutomovel() {
+    public String mostrarUsuario(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Object principal = authentication.getPrincipal();
+        UserDetails userDetails = (UserDetails) principal;
+        String cpf = userDetails.getUsername();
+        Pessoa pessoa = pessoaService.buscarPessoaPorCpf(cpf);
+        model.addAttribute("pessoa", pessoa);
+        return "pessoa/edit";
+    }
+
+    @GetMapping("/create")
+    public String criarPessoa() {
         return "pessoa/create";
     }
 
@@ -41,10 +54,12 @@ public class PessoaController {
 
     @PostMapping
     public String criarPessoa(@RequestParam("cpf") String cpf,
+            @RequestParam("password") String password,
             @RequestParam("nome") String nome,
             @RequestParam("estado") String estado) {
-        Pessoa novaPessoa = pessoaService.criarPessoa(cpf, nome, estado);
-        return "redirect:/pessoas/" + novaPessoa.getId();
+        var hashedPassword = new BCryptPasswordEncoder().encode(password);
+        pessoaService.criarPessoa(cpf, hashedPassword, nome, estado);
+        return "redirect:/account";
     }
 
     @GetMapping("/edit/{id}")

@@ -2,8 +2,6 @@ package br.com.wtldigital.codetest.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import br.com.wtldigital.codetest.model.Automovel;
 import br.com.wtldigital.codetest.service.AutomovelService;
 import org.springframework.ui.Model;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Controller
 @RequestMapping("/automoveis")
@@ -20,9 +21,20 @@ public class AutomovelController {
     @Autowired
     private AutomovelService automovelService;
 
-    @GetMapping
+    @GetMapping("/create")
     public String criarAutomovel() {
         return "automovel/create";
+    }
+
+    @GetMapping
+    public String mostrarAutomoveisDoUsuario(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Object principal = authentication.getPrincipal();
+        UserDetails userDetails = (UserDetails) principal;
+        String cpf = userDetails.getUsername();
+        List<Automovel> automovel = automovelService.listarAutomoveisPorPessoaCpf(cpf);
+        model.addAttribute("automoveis", automovel);
+        return "automovel/showAll";
     }
 
     @GetMapping("/listar")

@@ -8,7 +8,7 @@
 <body>
     <div th:replace="header.html"></div>
     
-    <h1>Criar Pessoa</h1>
+    <h1>Editar Conta</h1>
     
     <form action="#" 
     th:action="@{/pessoas/update/{id}(id=${pessoa.id})}" 
@@ -28,7 +28,7 @@
         </div>
         <div>
             <button type="submit">Editar</button>
-            <td><a th:href="@{/pessoas/delete/{id}(id=*{id})}">Deletar</a></td>
+            <td><a th:href="@{/pessoas/delete/{id}(id=*{id})}" class="button">Deletar</a></td>
         </div>
     </form>
 </body>

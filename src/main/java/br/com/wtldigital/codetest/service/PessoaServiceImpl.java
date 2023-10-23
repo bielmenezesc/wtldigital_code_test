@@ -31,13 +31,13 @@ public class PessoaServiceImpl implements PessoaService {
     }
 
     @Override
-    public Pessoa criarPessoa(String cpf, String nome, String estado) {
+    public Pessoa criarPessoa(String cpf, String password, String nome, String estado) {
         Optional<Pessoa> pessoaExistente = pessoaRepository.findByCpf(cpf);
     
         if (pessoaExistente.isPresent()) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Pessoa já existe");
         } else {
-            Pessoa pessoa = new Pessoa(cpf, nome, estado);
+            Pessoa pessoa = new Pessoa(cpf, password, nome, estado);
             return pessoaRepository.save(pessoa);
         }
     }
@@ -64,6 +64,16 @@ public class PessoaServiceImpl implements PessoaService {
 
         if (pessoaOptional.isPresent()) {
             pessoaRepository.deleteById(id);
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Pessoa não encontrada");
+        }
+    }
+
+    @Override
+    public Pessoa buscarPessoaPorCpf(String cpf) {
+        Optional<Pessoa> pessoaOptional = pessoaRepository.findByCpf(cpf);
+        if (pessoaOptional.isPresent()) {
+            return pessoaOptional.get();
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Pessoa não encontrada");
         }
