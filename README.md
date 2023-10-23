@@ -2,10 +2,11 @@
 
 Este é um simples sistema de gerenciamento de automóveis e pessoas construído com Spring Boot. Ele permite que você crie, edite, visualize a representação gráfica de um fluxo específico e exclua fluxos de trabalho.
 
-![image](https://i.imgur.com/RtYVaRD.png)
-![image](https://i.imgur.com/zt9YMQb.png)
-![image](https://i.imgur.com/lsLu2pn.png)
-![image](https://i.imgur.com/xkmwVBt.png)
+![image](https://i.imgur.com/LW3MruU.png)
+![image](https://i.imgur.com/l51wtXW.png)
+![image](https://i.imgur.com/YRQOt5i.png)
+![image](https://i.imgur.com/p7lic3I.png)
+![image](https://i.imgur.com/xBoQVHc.png)
 
 ## Início
 
